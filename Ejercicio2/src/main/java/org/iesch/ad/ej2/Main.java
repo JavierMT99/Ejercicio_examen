@@ -2,6 +2,7 @@ package org.iesch.ad.ej2;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 public class Main {
@@ -12,27 +13,39 @@ public class Main {
 
         Inicializa(lista);
 
+
         //Muestra por pantalla las busquedas:
         // 1.	 Personas mayores de edad, que están cursando un curso que empieza por A y su nombre contiene una dieresis (¨)
+        System.out.println("Consulta 01:");
+
+        List<Persona> consulta01 = lista.stream().filter(v -> v.getEdad() > 18).filter(v -> v.getCurso().charAt(0) == 'A').collect(Collectors.toList());
+        System.out.println();
+        for (int i = 0; i < consulta01.size(); i++) {
+            System.out.println(consulta01.get(i).toString());
+        }
+        System.out.println();
 
         //2.	Personas con edades entre 20 y 25 años
+        System.out.println("Consulta 02:");
+        List<Persona> consulta02 = lista.stream().filter(v -> v.getEdad() > 20 && v.getEdad() < 25).filter(v -> v.getCurso().equals("Acceso a datos")).collect(Collectors.toList());
+        System.out.println();
+        for (int i = 0; i < consulta02.size(); i++) {
+            System.out.println(consulta02.get(i).toString());
+        }
+        System.out.println();
 
         //3.	Muestra las personas que han aprobado el curso de POO
+        System.out.println("Consulta 03:");
+        List<Persona> consulta03 = lista.stream().filter(v -> v.getCurso().equals("POO")).filter(v -> v.getNota() > 4).collect(Collectors.toList());
+        System.out.println();
+        for (int i = 0; i < consulta02.size(); i++) {
+            System.out.println(consulta03.get(i).toString());
+        }
+        System.out.println();
 
         //4.	Muestra el número de personas que hay matriculadas en cada curso.
         /*SOLUCION:
         {Java=80, Acceso a datos=52, Express=71, Patrones de diseño=47, odoo=63, PostgreSQL=68, react=45, NodeJs=66, Angular=62, sql=56, POO=73, XML=65, MySQL=65, JavaScript=55, Javascript=1, Oracle=65, BBDD=67}*/
-
-
-
-
-
-
-
-
-
-
-
 
     }
 

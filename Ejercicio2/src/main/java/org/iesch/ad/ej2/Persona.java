@@ -15,4 +15,15 @@ public class Persona {
     int nota;
     int edad;
 
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "id=" + id +
+                ", nombre='" + nombre + '\'' +
+                ", apellidos='" + apellidos + '\'' +
+                ", curso=" + curso +
+                ", nota=" + nota +
+                ", edad=" + edad +
+                '}';
+    }
 }
